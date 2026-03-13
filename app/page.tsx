@@ -37,7 +37,10 @@ const RAFFLE_CONTRACT = process.env.NEXT_PUBLIC_RAFFLE_CONTRACT || "";
 const TOKEN = process.env.NEXT_PUBLIC_TOKEN || "";
 const TEE_PRIVATE_KEY = process.env.NEXT_PUBLIC_TEE_PRIVATE_KEY || "";
 
-const EXPLORER_BASE = "https://testnet.nearblocks.io/txns";
+const NETWORK_ID = process.env.NEXT_PUBLIC_NETWORK_ID || "testnet";
+const EXPLORER_BASE = NETWORK_ID === "mainnet"
+  ? "https://nearblocks.io/txns"
+  : `https://${NETWORK_ID}.nearblocks.io/txns`;
 
 interface DrawRound {
   roundIndex: number;
