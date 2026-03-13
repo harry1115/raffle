@@ -115,7 +115,7 @@ export async function getTransactionOutcome(
       jsonrpc: "2.0",
       id: "dontcare",
       method: "EXPERIMENTAL_tx_status",
-      params: [txHash, senderAccountId, "EXECUTED_OPTIMISTIC"],
+      params: { tx_hash: txHash, sender_account_id: senderAccountId, wait_until: "EXECUTED_OPTIMISTIC" },
     }),
   });
   const json = await res.json();
